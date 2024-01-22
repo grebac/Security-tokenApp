@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>String Encoding and File Path</title>
+</head>
+<body>
+
+<h1>Token Application</h1>
+
+<!-- Form for encoding a string -->
+<form id="encodeForm" action="#" th:action="@{/tokenRequest}" th:object="${tokenRequest}" method="post">
+    <label for="bankNumber">Bank number:</label>
+    <input type="text" id="bankNumber" name="bankNumber" th:field="*{bankNumber}" required>
+
+    <label for="bankSelector">Select a key</label>
+    <select id="bankSelector" th:field="*{publicKey}">
+        <option value="client1.jks" selected>Client1 : 6703 0123 4567 8</option>
+        <option value="client2.jks">Client 2 : 6703 0123 4567 9</option>
+    </select>
+
+    <button type="submit">Submit</button>
+</form>
+
+<div th:if="${isError}" class="error-message">ACS refused authentication</div>
+
+</body>
+</html>

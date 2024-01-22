@@ -1,0 +1,16 @@
+spring:
+  ssl:
+    bundle:
+      jks:
+        https-server:
+          key:
+            alias: "tokenApp"
+            password: "heplPass"
+          keystore:
+            location: "tokenApp.jks"
+            password: "heplPass"
+server:
+  ssl:
+    client-auth: want
+    bundle: "https-server"
+  port: 8044
