@@ -15,7 +15,7 @@
     <input type="text" id="bankNumber" name="bankNumber" th:field="*{bankNumber}" required>
 
     <label for="bankSelector">Select a key</label>
-    <select id="bankSelector" th:field="*{publicKey}">
+    <select id="bankSelector" th:field="*{keystoreName}">
         <option value="client1.jks" selected>Client1 : 6703 0123 4567 8</option>
         <option value="client2.jks">Client 2 : 6703 0123 4567 9</option>
     </select>

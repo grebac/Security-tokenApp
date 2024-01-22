@@ -22,11 +22,9 @@ public class requestToACS {
 
         var writer = new ObjectOutputStream(sslSocketForACS.getOutputStream());
 
-        //var writer = GetBufferedWriter(sslSocketForACS);
         var reader = GetBufferedReader(sslSocketForACS);
 
         writer.writeObject(object);
-//        writer.write("Here is the client BankNumber and signature\n");
         writer.flush();
 
         var answer = reader.readLine();
