@@ -24,9 +24,15 @@ public class requestToACS {
 
         var reader = GetBufferedReader(sslSocketForACS);
 
+        // Send the token request
         writer.writeObject(object);
         writer.flush();
 
+        // Send the signature
+        writer.writeObject(signature);
+        writer.flush();
+
+        // Wait for the ACK or NACK
         var answer = reader.readLine();
 
         if(answer.equals("ACK")) {

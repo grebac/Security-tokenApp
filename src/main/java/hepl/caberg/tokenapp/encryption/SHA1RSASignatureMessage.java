@@ -23,12 +23,12 @@ public class SHA1RSASignatureMessage implements Serializable
         signature = rsaSignatureTool.sign();
     }
 
-    public boolean verify(PublicKey rsaPublicKey) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException
+    public boolean verify(PublicKey rsaPublicKey, byte[] signatureToVerify) throws NoSuchAlgorithmException, NoSuchProviderException, InvalidKeyException, SignatureException
     {
         Signature rsaSignatureTool = Signature.getInstance("SHA1withRSA", PROVIDER_NAME);
         rsaSignatureTool.initVerify(rsaPublicKey);
         rsaSignatureTool.update(ObjectToBytes());
-        return rsaSignatureTool.verify(signature);
+        return rsaSignatureTool.verify(signatureToVerify);
     }
 
     public Object getObjectToSign(){
