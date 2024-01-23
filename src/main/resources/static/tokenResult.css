@@ -1,0 +1,41 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+h1 {
+    color: #333;
+    text-align: center;
+    margin-bottom: 20px; /* Added margin-bottom to center align */
+}
+
+div {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+div::before {
+    content: attr(data-text); /* Display the value of the 'data-text' attribute */
+    color: #333;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 10px;
+}
+
+div::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+div:empty::before {
+    display: none; /* Hide the pseudo-element if the div is empty */
+}
